@@ -51,9 +51,8 @@ export class UserController {
         res.status(409).json(response);
         return;
       }
-
       const user = this.userService.createUser(userData);
-      const response: ApiResponse<User> = {
+      const response: ApiResponse = {
         success: true,
         data: user,
         message: 'User created successfully'
@@ -83,7 +82,7 @@ export class UserController {
         return;
       }
 
-      const response: ApiResponse<User> = {
+      const response: ApiResponse = {
         success: true,
         data: user
       };
@@ -101,7 +100,7 @@ export class UserController {
   public getAllUsers = (req: Request, res: Response): void => {
     try {
       const users = this.userService.getAllUsers();
-      const response: ApiResponse<User[]> = {
+      const response: ApiResponse = {
         success: true,
         data: users
       };
@@ -119,7 +118,7 @@ export class UserController {
   public getOnlineUsers = (req: Request, res: Response): void => {
     try {
       const users = this.userService.getOnlineUsers();
-      const response: ApiResponse<User[]> = {
+      const response: ApiResponse = {
         success: true,
         data: users
       };
